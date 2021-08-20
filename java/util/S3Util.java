@@ -20,9 +20,6 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 
 public class S3Util {
 
-	private String accessKey = "AKIA3VGJRYJDHH2HGU73"; // 엑세스 키
-	private String secretKey = "nGzhevd9TNFWnSYRrWTQBAGiCyOhSbIyMAfmXrxx"; // 보안 엑세스 키
-
 	private AmazonS3 conn;
 
 	public S3Util() {
