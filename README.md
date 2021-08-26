@@ -23,7 +23,7 @@ The first version of this document was written by
 
  다재다능 
     |
-    |---- programming/webapp/WEB-INF/views/_jsp           : .jsp파일 저장 폴더
+    |---- programming/webapp/WEB-INF/views/_jsp           : .jsp파일 폴더
     |- inex.jsp                                           : 메인페이지로 이동 
     |- top_button.jsp                                     : 메인페이지 로그인, 고수찾기, 게시판 등 
     |- top_main.jsp                                       : 메인페이지 검색 및 , 재능 이동 아이콘
@@ -68,7 +68,7 @@ The first version of this document was written by
     |
     |---- programming/webapp/resources/css/               : css관련 폴더
     |
-    |---- programming/java/                               : 게시판관련 .jsp파일 저장폴더 
+    |---- programming/java/                               : java파일 폴더
     |-controller                                          : controller 관련
     |-dao                                                 : db접근 관련 
     |-mycommon                                            : 페이징 관련 
