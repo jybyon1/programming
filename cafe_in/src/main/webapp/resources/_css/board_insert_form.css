@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+.insert_box {
+	width: 600px;
+	margin: auto;
+	padding-top: 130px;
+}
+
+.title_input {
+	width: 98%;
+}
+
+textarea {
+	width: 98%;
+	resize: none;
+}
+
+.send_button {
+	padding-top: 10px;
+}
+
+.panel-primary>.panel-heading {
+    color: #fff;
+    background-color: #f2a21c !important;
+    border-color: #f2a21c !important;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #f2a21c !important;
+}
+
+.panel-primary {
+    border-color: #f2a21c !important;
+}
+
+.tb_title {
+    width: 75px;
+    font-size: 15px !important;
+}
+
+/* bootstrap button */
+.btn {
+    width: 100px !important;
+    height: 30px !important;
+    padding: 4px 20px;
+    border-radius: 7px;
+    font-size: 15px !important;
+    line-height: 1px !important;
+}
+
+.btn-warning {
+    background-color: #fc8a17 !important;
+}

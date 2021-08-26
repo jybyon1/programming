@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+.button_box {
+	width: 100%;
+	margin-top: 10px;
+}
+
+.button_box td:nth-child(1) {
+	width: 55%;
+}
+
+.button_box td:nth-child(2) {
+	width: 20%;
+}
+
+.button_box td:nth-child(3) {
+	width: 20%;
+}
+
+.quick_item {
+	cursor: pointer;
+}
+
+.login_btn {
+	width: 80px !important;
+	height: 25px !important; 
+	padding: 4px 20px;
+	border-radius: 7px;
+	font-size: 15px !important;
+	line-height: 0px !important;
+}
+
+.btn-warning {
+	background-color: #fc8a17 !important;
+}

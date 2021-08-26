@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+.board_list {
+	padding-top: 10px;
+}
+
+.board_button {
+	margin-top: 5px;
+	text-align: right;
+}
+
+.input_lgn {
+	margin: auto;
+    width: 200px;
+    height: 30px;
+    margin-left: 3px;
+    margin-right: 3px;
+    border: none;
+    border-radius: 0px;
+    border-bottom: solid #4D5059 1px;
+    color: #1A1A1A;
+    background-color:#F5F7F6;
+}
+
+.table>tbody>tr.success>td, .table>tbody>tr.success>th, .table>tbody>tr>td.success, .table>tbody>tr>th.success, .table>tfoot>tr.success>td, .table>tfoot>tr.success>th, .table>tfoot>tr>td.success, .table>tfoot>tr>th.success, .table>thead>tr.success>td, .table>thead>tr.success>th, .table>thead>tr>td.success, .table>thead>tr>th.success {
+    background-color: #F5F7F6 !important;
+    color: #444342 !important;
+    font-size: 14px;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #f2a21c !important;
+}
+
+.td_style {
+	font-size: 15px;
+}
+
+.search_style {
+	text-align: center;
+	padding-top: 15px;
+}
+
+.table_location {
+	padding-top: 50px;
+}
+
+.page_style {
+	padding-top: 20px;
+	text-align: center;
+	font-size: 15px;
+}
+
+/* bootstrap button */
+.btn {
+   width: 80px;
+   height: 25px;
+   padding: 4px 20px;
+   border-radius: 7px;
+   font-size: 15px !important;
+   line-height: 0px !important;
+}
+
+.btn-warning {
+    background-color: #fc8a17 !important;
+}

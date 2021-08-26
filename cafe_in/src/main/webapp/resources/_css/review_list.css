@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+textarea {
+	width: 870px;
+	resize: none;
+}
+
+.review {
+	height: 70px !important;
+}
+
+.ghost-button {
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: transparent;
+    border: none;
+    color: #FFFFFF;
+}
+
+.page_style {
+	text-align: center;
+	padding-top: 20px;
+	text-align: center;
+	font-size: 15px;
+}
+
+#td_thumb {
+	width: 20px;
+}
+
+.btn-warning {
+    background-color: #fc8a17 !important;
+}
+
+.cancle {
+	width: 20px !important;
+	height: 20px !important;
+	padding: 2px !important;
+	line-height: 0px !important;
+}

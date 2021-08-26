@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+.logo {
+   text-align: center;
+   padding-top: 30px;
+}
+
+.logo_center {
+   width: 270px;
+   height: 260px;
+   margin-top: -2%;
+   margin-left: 2%;
+   cursor: pointer;
+}

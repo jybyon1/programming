@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+.tp_index_layout {
+	overflow: inherit;
+}
+
+.c_name {
+	color: black;
+	font-weight: bold;
+	font-size: 20px;
+	margin-right: 15px;
+	margin-left: 10px;
+}
+
+.cafe_list {
+	cursor: pointer;
+}
+
+.c_title {
+	margin-top: 5px;
+}
+
+.c_star {
+	font-weight: bold;
+	font-size: 18px;
+	color: #fc8a17;
+}
+
+.c_layout {
+	margin: auto !important;
+}
+
+.index_image {
+   width: 300px;
+   height: 210px;
+   object-fit:cover;
+}
+
+.index_photo {
+   margin: 10px auto;
+   margin-left: 30px;
+   margin-right: auto;
+   width: 320px; 
+   height: 240px;
+   min-width: 275px;
+   float: left;
+   overflow:hidden;
+}
+
+/* bootstrap button */
+.btn {
+   width: 80px;
+   height: 25px;
+   padding: 4px 20px;
+   border-radius: 7px;
+   font-size: 15px !important;
+   line-height: 0px !important;
+}
+
+.btn-warning {
+    background-color: #fc8a17 !important;
+}
+

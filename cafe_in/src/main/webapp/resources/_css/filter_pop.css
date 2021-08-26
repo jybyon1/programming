@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+#filter_popup {
+	width: 400px;
+	min-height: 500px;
+	border: 1px solid #f2a21c;
+	position: absolute;
+	left: 400px;
+	top: 100px;
+ 	background: white; 
+	display: none;
+	padding: 20px;
+	z-index:1000;
+}
+
+.mood_box {
+	margin-bottom: 20px;
+}
+
+#bt_x {
+	margin-left: 350px;
+}
+
+.f_name {
+	text-align: center;
+	font-size: 20px;
+}
+
+.send_reset {
+    margin-top: 20px;
+    margin-inline-start: 127px;
+    justify-content: center;
+}
+
+.sub_btn {
+	margin-right: 60px;
+}
+
+.cancle{
+	width: 20px !important;
+	height: 20px;
+	padding: 2px !important;
+	line-height: 0px !important;
+	margin-left:95%;
+}
+
+.fil_btn{
+	width: 80px !important;
+	height: 25px !important; 
+	padding: 4px 20px;
+	border-radius: 7px;
+	font-size: 15px !important;
+	line-height: 0px !important;
+	margin-left: 15pt;
+}
+
+.left{
+	margin-left: -30pt;
+}
