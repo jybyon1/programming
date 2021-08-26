@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="detail">
+	
+	
+	<resultMap type="vo.CafeVo" id="cafe_one_map">
+	    <result  property="c_idx"  column="c_idx"/>
+	
+	    <collection property="mood_list"
+	                column="c_idx=c_idx"
+	                select="mood_list_c_idx"   
+	    />
+	    
+	    <collection property="dessert_list"
+	                column="c_idx=c_idx"
+	                select="dessert_list_c_idx"   
+	    /> 
+	</resultMap>
+	
+	
+	<select id="mood_list_c_idx" resultType="vo.MoodFilterVo">
+	    select 
+	       m_f_idx,mf.m_idx,mf.c_idx, m_name 
+	    from mood_filter mf inner join mood m on m.m_idx = mf.m_idx
+	    where c_idx=#{ c_idx }
+	</select>
+	
+	<select id="dessert_list_c_idx" resultType="vo.DessertFilterVo">
+	    select 
+	       df.d_f_idx,df.d_idx,df.c_idx,d.d_name 
+	    from dessert_filter df inner join dessert  d on df.d_idx =  d.d_idx
+	    where c_idx=#{ c_idx }
+	</select>
+	
+	
+	<select id="cafe_one" parameterType="int" resultMap="cafe_one_map">
+		select 
+     	   c.*,
+    	   round((select nvl(avg(r_star),0) from review where c.c_idx = c_idx),1) as r_star_avg
+  		 from
+   		    (select * from cafe where c_idx=#{c_idx}) c
+	</select>
+	
+	
+	<!-- 전체조회 -->
+	<select id="cafe_list" resultMap="cafe_one_map">
+		select 
+     	 c.*,
+    	  round((select nvl(avg(r_star),0) from review where c.c_idx = c_idx),1) as r_star_avg
+  		 from
+   		(select * from cafe order by DBMS_RANDOM.RANDOM ) c
+	</select>
+	
+
+<!-- ########################################################################################### -->
+
+
+	<select id="mood_list" parameterType="int" resultType="vo.TotalMoodVo">
+		select * from total_mood_view where c_idx = #{ c_idx }
+	</select>	
+	
+	<select id="dessert_list" parameterType="int" resultType="vo.TotalDessertVo">
+		select * from total_dessert_view where c_idx = #{ c_idx }
+	</select>	
+
+
+	<!-- 추가 -->
+	<insert id="cafe_insert" parameterType="cafe">
+      insert into cafe values(
+                                            seq_cafe_c_idx.nextVal,
+      										#{c_name},     							
+      										#{c_tel},
+      										#{c_zipcode},
+      										#{c_addr},
+      										#{c_addr_detail},
+      										#{c_parking },
+      										#{c_alcohol},
+      										#{c_nokidz },
+      										#{c_ip},
+      										#{c_photo}
+      										)
+   </insert>
+
+	<!-- 업데이트 수정해야함-->
+	<update id="cafe_update" parameterType="cafe">
+		update cafe set c_name=#{c_name},
+						c_tel=#{c_tel},
+						c_zipcode=#{c_zipcode},
+						c_addr=#{c_addr},
+						c_addr_detail=#{c_addr_detail},
+						c_parking=#{c_parking},
+						c_alcohol=#{c_alcohol},
+						c_nokidz=#{c_nokidz},
+						c_ip=#{c_ip}
+					  where c_idx=#{c_idx}
+	</update>
+
+
+	<select id="cafe_select_c_idx" resultType="int">
+		select max(c_idx) from cafe
+	</select>
+	
+	<insert id="insert_mood" parameterType="vo.MoodFilterVo">
+		insert into mood_filter values (seq_mood_filter_m_f_idx.nextVal,#{m_idx},#{c_idx})
+	</insert>
+
+		
+	<insert id="insert_dessert" parameterType="vo.DessertFilterVo">
+		insert into dessert_filter values (seq_dessert_filter_d_f_idx.nextVal,#{d_idx},#{c_idx})
+	</insert>
+
+
+	<!-- 삭제 -->
+   	<delete id="cafe_delete" parameterType="int">
+   		delete from cafe where c_idx=#{c_idx}
+   	</delete>
+	
+	<delete id="mood_filter_delete" parameterType="int">
+		delete from mood_filter where c_idx=#{c_idx}
+	</delete>
+	
+		
+	<delete id="dessert_filter_delete" parameterType="int">
+		delete from dessert_filter where c_idx=#{c_idx}
+	</delete>
+
+</mapper>

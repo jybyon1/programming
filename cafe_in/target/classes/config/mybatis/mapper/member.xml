@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+	
+	<select id="member_one_i_idx" resultType="member" parameterType="int">
+		select * from i_member where i_idx = #{i_idx}
+	</select>
+	
+	<select id="member_one_i_id" resultType="member" parameterType="String">
+		select * from i_member where i_id=#{i_id}
+	</select>
+	
+	<insert id="member_insert" parameterType="member">
+	insert into i_member (i_idx,i_name,i_id,i_pwd,i_email,i_zipcode,
+		i_addr,i_addr_detail,i_birth,i_ip,i_tel,i_grade)
+		values(		seq_member_i_idx.nextVal,
+		    					   #{i_name}, 
+								   #{i_id}, 
+								   #{i_pwd},
+								   #{i_email},
+								   #{i_zipcode},
+								   #{i_addr},
+								   #{i_addr_detail},
+								   #{i_birth},
+								   #{i_ip},
+								   #{i_tel},
+								   default
+								   ) 
+	</insert>
+	
+	
+   <update id="member_update"  parameterType="member">
+      update i_member set i_name		=#{i_name},
+      					  i_id		    =#{i_id},
+      					  i_pwd         =#{i_pwd },
+      					  i_email       =#{i_email},
+      					  i_zipcode     =#{i_zipcode},
+      					  i_addr        =#{i_addr},
+      					  i_addr_detail =#{i_addr_detail},
+      					  i_birth       =#{i_birth},
+      					  i_ip          =#{i_ip},
+      					  i_tel			=#{i_tel}
+      where i_idx			=#{i_idx}
+  </update>
+</mapper>

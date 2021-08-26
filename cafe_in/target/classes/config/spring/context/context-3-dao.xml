@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean id="filter_dao" class="dao.FilterDaoImpl">
+		<property name="sqlSession"  ref="sqlSession"/>
+	</bean>
+	
+	<bean id="review_dao" class="dao.ReviewDaoImpl">
+		<property name="sqlSession"  ref="sqlSession"/>
+	</bean>
+
+	<bean id="member_dao" class="dao.MemberDaoImpl">
+		<property name="sqlSession" ref="sqlSession"/>
+	</bean>
+	
+	<bean id="favorites_dao" class="dao.FavoritesDaoImpl">
+		<property name="sqlSession" ref="sqlSession"/>
+	</bean>
+
+	<bean id="detail_dao" class="dao.DetailDaoImpl">
+		<property name="sqlSession" ref="sqlSession"/>
+	</bean>
+	
+	<bean id="board_dao" class="dao.BoardDaoImpl">
+		<property name="sqlSession" ref="sqlSession"/>
+	</bean>
+	
+	<bean id="comment_dao" class="dao.CommentDaoImpl">
+		<property name="sqlSession" ref="sqlSession"/>
+	</bean>
+	
+	<bean id="recommend_dao" class="dao.RecommendDaoImpl">
+		<property name="sqlSession" ref="sqlSession"/>
+	</bean>
+	
+	<bean id="mood_dao" class="dao.MoodDaoImpl">
+		<property name="sqlSession" ref="sqlSession"/>
+	</bean>
+	
+	<bean id="dessert_dao" class="dao.DessertDaoImpl">
+		<property name="sqlSession" ref="sqlSession"/>
+	</bean>
+	
+	<bean id="etc_dao" class="dao.EtcDaoImpl">
+		<property name="sqlSession" ref="sqlSession"/>
+	</bean>
+						
+	
+</beans>
