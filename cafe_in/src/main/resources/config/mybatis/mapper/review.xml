@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="review">
+
+   <!-- 전체조회 -->
+   <select id="review_list" parameterType="int" resultType="review">
+         select 
+         r.*,
+         (select nvl(count(*),0) from thumb where r.r_idx = r_idx ) as count 
+         from (select * from review) r
+         where c_idx = #{ c_idx }
+         order by r_idx desc
+   </select>
+
+   <!-- 조건별(페이징) 조회 -->
+   <select id="review_condition_list" parameterType="Map" resultType="review">
+      select * from
+      (   select 
+         r.*,
+         rank() over(order by r_idx desc) as no,
+         (select nvl(count(*),0) from thumb where r.r_idx = r_idx ) as count 
+         from (select * from review  where c_idx = #{ c_idx }) r
+      )
+      where no between #{ start } and #{ end } 
+
+   </select>
+   
+   <!-- 리뷰추가 -->
+   <insert id="review_insert" parameterType="review">
+      insert into review values(seq_review_r_idx.nextVal,
+                             #{ r_content },
+                             #{ r_star },
+                             sysdate,
+                             #{ i_id },
+                             #{ c_idx }
+                             )
+   </insert>
+   
+   <!-- c_idx에 해당되는 리뷰의 갯수 -->
+   <select id="review_row_total" parameterType="int" resultType="int">
+      select nvl(count(*),0) from review where c_idx = #{ c_idx }
+   </select>
+   
+   
+   <!-- 댓글 삭제 -->
+   <delete id="review_delete" parameterType="int">
+      delete from review where r_idx = #{ r_idx }
+   </delete>
+   
+   <!-- 좋아요 조회 -->
+   <select id="thumb_list_one" resultType="thumb" parameterType="thumb">
+      select * from thumb where i_id = #{ i_id } and r_idx = #{ r_idx }
+   </select>
+   
+   <!-- 좋아요 추가 -->
+   <insert id="thumb_insert" parameterType="thumb">
+      insert into thumb values(seq_thumb_t_idx.nextVal,
+                             #{ i_id },
+                             #{ r_idx })
+   </insert>
+   
+   <!-- r_idx에 해당되는 좋아요의 갯수 -->
+   <select id="thumb_count" parameterType="int" resultType="int">
+      select nvl(count(*),0) from thumb where r_idx = #{ r_idx }
+   </select>
+   
+   <!-- 좋아요 취소 -->
+   <select id="thumb_delete" resultType="thumb" parameterType="thumb">
+      delete from thumb where i_id = #{ i_id } and r_idx = #{ r_idx }
+   </select>
+
+</mapper>

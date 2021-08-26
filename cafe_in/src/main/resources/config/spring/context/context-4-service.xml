@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<context:annotation-config/>
+	
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean id="favorites_service" class="service.FavoritesServiceImpl">
+		<property name="favorites_dao" ref="favorites_dao"></property>
+	</bean>
+	
+	<bean id="board_service" class="service.BoardServiceImpl">
+		<property name="board_dao" ref="board_dao"></property>
+	</bean>
+	
+	<bean id="etc_service" class="service.EtcServiceImpl">
+		<property name="etc_dao" ref="etc_dao"></property>
+	</bean>
+	
+	<bean id="detail_service" class="service.DetailServiceImpl">
+		<property name="detail_dao" ref="detail_dao"></property>
+	</bean>
+	
+	<bean id="dessert_service" class="service.DessertServiceImpl">
+		<property name="dessert_dao" ref="dessert_dao"></property>
+	</bean>
+	
+	<bean id="mood_service" class="service.MoodServiceImpl">
+		<property name="mood_dao" ref="mood_dao"></property>
+	</bean>
+	
+	<bean id="filter_service" class="service.FilterServiceImpl">
+		<property name="filter_dao" ref="filter_dao"></property>
+	</bean>
+
+	<bean id="recommend_service" class="service.RecommendServiceImpl">
+		<property name="recommend_dao" ref="recommend_dao"></property>
+	</bean>
+	
+	<bean id="review_service" class="service.ReviewServiceImpl">
+		<property name="review_dao" ref="review_dao"/>
+	</bean>	
+	
+	<bean id="comment_service" class="service.CommentServiceImpl">
+		<property name="comment_dao" ref="comment_dao"/>
+	</bean>	
+	
+	<bean id="member_service" class="service.MemberServiceImpl">
+		<property name="member_dao" ref="member_dao"/>
+	</bean>	
+
+		
+</beans>

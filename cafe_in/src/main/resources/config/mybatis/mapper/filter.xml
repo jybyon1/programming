@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="filter">
+	<select id="filter_list" resultType="vo.CafeSearchVo" parameterType="vo.CafeSearchVo"> 
+		select * from cafe_search_view where m_idx = #{m_idx} and d_idx = {#d_idx}
+	</select>
+	
+	<select id="filter_mood_list" resultType="mood">
+		select * from mood 
+	</select>
+	
+	<select id="filter_dessert_list" resultType="dessert">
+		select * from dessert 
+	</select>
+	
+	<select id="filter_condition_list" parameterType="Map" resultType="recommend">
+      select 
+         distinct  c.*,
+         round((select nvl(avg(r_star),0) from review where c.c_idx = c_idx),1) r_star_avg
+      from 
+      (
+         select c_idx,c_name,c_tel,c_zipcode,c_addr,c_addr_detail,c_parking,c_alcohol,c_nokidz,c_ip,c_photo from cafe_filter
+              <trim prefix="where"  prefixOverrides="and|or">
+                  <if test="m_idx_array!=null">
+                    (
+                    <foreach collection="m_idx_array"  item="m_idx"  separator="or">
+                       m_idx = #{ m_idx } 
+                    </foreach>
+                    )
+                  </if>
+                  <if test="d_idx_array!=null">
+                      and (
+                      <foreach collection="d_idx_array"  item="d_idx"  separator="or">
+                         d_idx = #{ d_idx } 
+                      </foreach>
+                      )
+                  </if>
+                  <if test="c_nokidz!=null">
+                     and c_nokidz = #{ c_nokidz } 
+                  </if>
+                  <if test="c_parking!=null">
+                     and c_parking = #{ c_parking } 
+                  </if>
+                  <if test="c_alcohol!=null">
+                     and c_alcohol = #{ c_alcohol } 
+                  </if>
+            </trim> 
+      ) c     
+   </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

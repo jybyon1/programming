@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="etc">
+
+	
+	<resultMap type="vo.CafeVo" id="cafe_one_map">
+	    <result  property="c_idx"  column="c_idx"/>
+	
+	    <collection property="mood_list"
+	                column="c_idx=c_idx"
+	                select="mood_list_c_idx"   
+	    />
+	    
+	    <collection property="dessert_list"
+	                column="c_idx=c_idx"
+	                select="dessert_list_c_idx"   
+	    /> 
+	</resultMap>
+
+	
+	<select id="mood_list_c_idx" resultType="vo.MoodFilterVo">
+	    select 
+	       m_f_idx,mf.m_idx,mf.c_idx, m_name 
+	    from mood_filter mf inner join mood m on m.m_idx = mf.m_idx
+	    where c_idx=#{ c_idx }
+	</select>
+	
+	<select id="dessert_list_c_idx" resultType="vo.DessertFilterVo">
+	    select 
+	       df.d_f_idx,df.d_idx,df.c_idx,d.d_name 
+	    from dessert_filter df inner join dessert  d on df.d_idx =  d.d_idx
+	    where c_idx=#{ c_idx }
+	</select>
+	
+	
+	<!-- 전체조회 -->
+	<select id="etc_list" resultMap="cafe_one_map">
+		select 
+     	 c.*,
+    	  round((select nvl(avg(r_star),0) from review where c.c_idx = c_idx),1) as r_star_avg
+  		 from
+   		(select * from cafe order by DBMS_RANDOM.RANDOM ) c
+	</select>
+	
+	<!-- 카페 이름 검색 -->
+	<select id="cafe_search" parameterType="Map" resultType="vo.CafeVo">
+		select * from cafe where c_name like '%' || #{ search_text } || '%'
+	</select>
+
+
+</mapper>

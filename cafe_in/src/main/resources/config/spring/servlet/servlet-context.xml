@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<!--<context:component-scan base-package="com.increpas.cafein2" />-->	
+	
+	<context:annotation-config/>
+
+	
+	<!-- FilterController 수동생성 -->
+	<beans:bean class="controller.FilterController">
+		<beans:property name="filter_service" ref="filter_service"/>
+	</beans:bean>
+	
+	<!-- ReivewController 수동생성 -->
+	<beans:bean class="controller.ReviewController">
+		<beans:property name="review_service" ref="review_service" />
+	</beans:bean>
+	
+	<!-- FavoritesController 수동생성 -->
+	<beans:bean class="controller.FavoritesController">
+		<beans:property name="favorites_service" ref="favorites_service"/>
+	</beans:bean>
+	
+	<!-- MemberController -->
+	<beans:bean class="controller.MemberController">
+		<beans:property name="member_service" ref="member_service"/>
+	</beans:bean>
+	<!-- EtcController -->
+	<beans:bean class="controller.EtcController">
+		<beans:property name="etc_service" ref="etc_service"/>
+	</beans:bean>
+	
+	
+	<!-- DetailController -->
+	<beans:bean class="controller.DetailController">
+		<beans:property name="detail_service" ref="detail_service"/>
+		<beans:property name="mood_service" ref="mood_service"/>
+		<beans:property name="dessert_service" ref="dessert_service"/>
+	</beans:bean>
+	
+	<!-- BoardController 수동생성 -->
+	<beans:bean class="controller.BoardController">
+		<beans:property name="board_service" ref="board_service"/>
+	</beans:bean>
+	
+	<!-- CommentController 수동생성 -->
+	<beans:bean class="controller.CommentController">
+		<beans:property name="comment_service" ref="comment_service"/>
+	</beans:bean>
+	
+	<!-- RecommendController 수동생성 -->
+	<beans:bean class="controller.RecommendController">
+		<beans:property name="recommend_service" ref="recommend_service"/>
+	</beans:bean>
+	
+</beans:beans>

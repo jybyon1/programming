@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="favorites">
+	
+	<!-- 회원별 가고싶다 조회 -->
+	<select id="favorites_list" parameterType="int" resultType="favorites">
+		select rownum as no,
+			f.*
+		from
+			(select * from favorites_view where i_idx=#{ i_idx} order by f_idx asc) f
+	</select>
+
+
+    <select id="favorites_one"  parameterType="favorites"  resultType="favorites">
+    
+       select * from favorites where i_idx=#{ i_idx} and c_idx=#{ c_idx }
+    </select>
+
+
+	<!-- 가고싶다 등록 -->
+	<insert id="favorites_insert" parameterType="favorites">
+		insert into favorites values(seq_favorites_f_idx.nextVal,#{ i_idx },#{ c_idx })
+	</insert>
+
+
+	<!-- 가고싶다 삭제 -->
+	<delete id="favorites_delete" parameterType="int">
+		delete from favorites where f_idx=#{ f_idx }
+	</delete>
+
+</mapper>
