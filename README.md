@@ -23,27 +23,27 @@ The first version of this document was written by
 
  다재다능 
     |
-    |---- programming/webapp/WEB-INF/views/_jsp  : .jsp파일 저장 폴더
-    |- inex.jsp                                  : 메인페이지로 이동 
-    |- top_button.jsp                            : 메인페이지 로그인, 고수찾기, 게시판 등 
-    |- top_main.jsp                              : 메인페이지 검색 및 , 재능 이동 아이콘
+    |---- programming/webapp/WEB-INF/views/_jsp           : .jsp파일 저장 폴더
+    |- inex.jsp                                           : 메인페이지로 이동 
+    |- top_button.jsp                                     : 메인페이지 로그인, 고수찾기, 게시판 등 
+    |- top_main.jsp                                       : 메인페이지 검색 및 , 재능 이동 아이콘
     |
-    |---- programming/webapp/WEB-INF/views/_jsp/talent/ : 재능관련 .jsp파일 저장 폴더
-    |-talent_detail.jsp                                 : 재능 상세  
-    |-talent_list.jsp                                   : 재능 목록             
-    |-talent_modify.jsp                                 : 재능 수정폼 
-    |-talent_register.jsp                               : 재능 등록폼 
-    |-talent_sidebar.jsp                                : 재능 목록 사이드바 
+    |---- programming/webapp/WEB-INF/views/_jsp/talent/   : 재능관련 .jsp파일 저장 폴더
+    |-talent_detail.jsp                                   : 재능 상세  
+    |-talent_list.jsp                                     : 재능 목록             
+    |-talent_modify.jsp                                   : 재능 수정폼 
+    |-talent_register.jsp                                 : 재능 등록폼 
+    |-talent_sidebar.jsp                                  : 재능 목록 사이드바 
     |
-    |---- programming/webapp/WEB-INF/views/_jsp/seller/ : 고수(판매자)관련 .jsp파일 저장폴더 
-    |-seller_insert_form.jsp                            : 고수 등록폼                              
-    |-seller_list.jsp                                   : 고수 목록 
-    |-seller_modify_form.jsp                            : 고수 수정폼
-    |-seller_top_button.jsp                             : 고수페이지 로그인, 게시판 등
-    |-seller_view.jsp                                   : 고수 상세          
+    |---- programming/webapp/WEB-INF/views/_jsp/seller/   : 고수(판매자)관련 .jsp파일 저장폴더 
+    |-seller_insert_form.jsp                              : 고수 등록폼                              
+    |-seller_list.jsp                                     : 고수 목록 
+    |-seller_modify_form.jsp                              : 고수 수정폼
+    |-seller_top_button.jsp                               : 고수페이지 로그인, 게시판 등
+    |-seller_view.jsp                                     : 고수 상세          
     |
-    |---- programming/webapp/WEB-INF/views/_jsp/review/ : 리뷰관련 .jsp파일 저장폴더 
-    |-review_list.jsp                                   : 리뷰 목록
+    |---- programming/webapp/WEB-INF/views/_jsp/review/   : 리뷰관련 .jsp파일 저장폴더 
+    |-review_list.jsp                                     : 리뷰 목록
     |                                
     |---- programming/webapp/WEB-INF/views/_jsp/purchase/ : 결제관련 .jsp파일 저장폴더 
     |-purchase.jsp                                        : 결제 페이지                            
@@ -67,6 +67,19 @@ The first version of this document was written by
     |-board_view.jsp                                      : 게시판 내용
     |
     |---- programming/webapp/resources/css/               : css관련 폴더
+    |
+    |---- programming/java/                               : 게시판관련 .jsp파일 저장폴더 
+    |-controller                                          : controller 관련
+    |-dao                                                 : db접근 관련 
+    |-mycommon                                            : 페이징 관련 
+    |-service                                             : Dao의 DB데이터 가공 관련 
+    |-util                                                : 페이징, S3관련
+    |-vo                                                  : 데이터 저장 관련
+    |-xml                                                 : 쿼리 관련
+    |
+    |
+    |
+    
 ```
 
 
