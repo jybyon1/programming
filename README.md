@@ -9,7 +9,8 @@ The first version of this document was written by
 @date: 2021-JUN
 
 ```
-#구현된 웹 페이지는 개인 포트폴리오 사이트를 통해 확인하실 수 있습니다. 포트폴리오 사이트 주소: jybyon1.com
+#구현된 웹 페이지는 개인 포트폴리오 사이트를 통해 확인하실 수 있습니다. 포트폴리오 사이트 주소: https://jybyon1.com
+
 #재능마켓 파일은 공유하여 사용하고 있습니다. 공유 깃 주소: https://github.com/HyungcheolSim/TalentMarket.git 
 
 ## **Objectives** 
